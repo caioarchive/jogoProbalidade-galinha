@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Mini Jogos de Probabilidade</title>
+</head>
+<body>
+    <div class="ground"></div> <!-- chao pixel -->
+    <!-- CENÁRIO PIXEL ART -->
+  <div class="ground"></div>
+  <div class="hill" style="left:50px;"></div>
+  <div class="hill" style="left:300px;"></div>
+  <div class="tree" style="left:150px;"></div>
+  <div class="tree" style="left:400px;"></div>
+  <h1>🎲 Mini Jogos de Probabilidade</h1>
+
+  <div id="menu">
+    <button onclick="iniciarJogo('galinha')">🐔 Roleta Russa da Galinha</button>
+    <button onclick="iniciarJogo('dados')">🎲 Corrida dos Dados (4 jogadores)</button>
+    <button onclick="mostrarComoJogar()">ℹ️ Como jogar</button>
+    <button onclick="mostrarConfig()">⚙️ Configurações</button>
+  </div>
+
+
+  <!-- COMO JOGAR -->
+  <div id="comoJogar" class="tela">
+    <h2>ℹ️ Como jogar</h2>
+    <p><b>Roleta Russa da Galinha:</b> Dois jogadores se revezam jogando ovos. 
+    Um ovo podre aleatório elimina quem receber, mas pode surgir um ovo dourado que dá imunidade.</p>
+    <p><b>Corrida dos Dados:</b> Quatro jogadores lançam dados para avançar. 
+    Quem atingir a linha de chegada primeiro vence.</p>
+    <button onclick="voltarMenu()">⬅️ Voltar</button>
+  </div>
+
+  <!-- CONFIGURAÇÕES -->
+  <div id="config" class="tela">
+    <h2>⚙️ Configurações</h2>
+    <label>Jogador 1: <input type="text" id="nome1"></label><br>
+    <label>Jogador 2: <input type="text" id="nome2"></label><br>
+    <label>Jogador 3: <input type="text" id="nome3"></label><br>
+    <label>Jogador 4: <input type="text" id="nome4"></label><br>
+    <button onclick="salvarConfig()">Salvar</button>
+    <button onclick="voltarMenu()">⬅️ Voltar</button>
+  </div>
+
+  <!-- JOGO GALINHA -->
+  <div id="jogoGalinha" class="tela">
+    <h2>🐔 Roleta Russa da Galinha</h2>
+    <div class="arena">
+      <div id="player1" class="player active">Jogador 1</div>
+      <div id="player2" class="player">Jogador 2</div>
+      <div id="egg" class="egg"></div>
+    </div>
+    <button onclick="atirar()">🥚 A Galinha Atira!</button>
+    <button id="restartBtn" onclick="reiniciar()" style="display:none;">🔄 Reiniciar</button>
+    <button onclick="voltarMenu()">⬅️ Voltar</button>
+    <div class="log" id="log"></div>
+    <audio id="deathSound" src="https://www.myinstants.com/media/sounds/windows-xp-error.mp3"></audio>
+  </div>
+
+  <!-- JOGO DADOS -->
+  <div id="jogoDados" class="tela">
+    <h2>🎲 Corrida dos Dados</h2>
+    <div id="vezJogador">➡️ Vez do Jogador 1</div>
+    <div class="arenaDados">
+      <div class="linha"><span id="player1Dados">Jogador 1</span><div class="barra" id="barra1"></div></div>
+      <div class="linha"><span id="player2Dados">Jogador 2</span><div class="barra" id="barra2"></div></div>
+      <div class="linha"><span id="player3Dados">Jogador 3</span><div class="barra" id="barra3"></div></div>
+      <div class="linha"><span id="player4Dados">Jogador 4</span><div class="barra" id="barra4"></div></div>
+    </div>
+    <button id="botaoDado" onclick="rolarDadoJogador()">🎲 Jogar Dados!</button>
+    <button onclick="reiniciarDados()">🔄 Reiniciar</button>
+    <button onclick="voltarMenu()">⬅️ Voltar</button>
+    <div class="log" id="logDados"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
